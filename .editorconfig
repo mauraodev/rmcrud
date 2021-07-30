@@ -1,4 +1,6 @@
 # Windows files
+[*.*]
+tab_width = 2
+
 [*.bat]
 end_of_line = crlf
-tab_width = 2
