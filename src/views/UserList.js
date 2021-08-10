@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, FlatList, Alert, Icon } from 'react-native';
+import { View, FlatList, Alert } from 'react-native';
 import { ListItem, Avatar } from 'react-native-elements';
 import { Button } from 'react-native-elements/dist/buttons/Button';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import users from '../data/users';
 
 export default (props) => {
@@ -21,7 +22,7 @@ export default (props) => {
 
   function getActions(user) {
     return (
-      <React.Fragment>
+      <>
         <Button
           onPress={() => props.navigation.navigate('UserForm', user)}
           type="clear"
@@ -31,9 +32,9 @@ export default (props) => {
         <Button
           onPress={() => confirmUserDeletion(user)}
           type="clear"
-          icon={<Icon name="delete" size={25} color="red" />}
+          icon={<Icon name="trash" size={25} color="red" />}
         />
-      </React.Fragment>
+      </>
     );
   }
 
@@ -42,12 +43,12 @@ export default (props) => {
       <ListItem
         key={user.id}
         bottomDivider
-        onPress={() => props.navigation.navigate('UserForm', user)}
-        rightContent={getActions()}>
+        onPress={() => props.navigation.navigate('UserForm', user)}>
         <Avatar source={{ uri: user.avatarUrl }} />
         <ListItem.Content>
           <ListItem.Title>{user.name}</ListItem.Title>
           <ListItem.Subtitle>{user.email}</ListItem.Subtitle>
+          <View>{getActions(user)}</View>
         </ListItem.Content>
         <ListItem.Chevron />
       </ListItem>

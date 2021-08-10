@@ -3,7 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import UserList from './views/UserList';
 import UserForm from './views/UserForm';
-import { Button, Icon } from 'react-native-elements';
+import { Button } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Stack = createStackNavigator();
 
@@ -23,7 +24,7 @@ export default () => {
                 <Button
                   onPress={() => navigation.navigate('UserForm')}
                   type="clear"
-                  icon={<Icon name="add" size={25} color="white" />}
+                  icon={<Icon name="plus" size={25} color="white" />}
                 />
               ),
             };
