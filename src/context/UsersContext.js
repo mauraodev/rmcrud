@@ -1,9 +1,16 @@
-import React, { createContext } from 'react';
+import React, { createContext, useReducer } from 'react';
 import users from '../data/users';
 
+const initialState = { users };
 const UsersContext = createContext({});
 
 export const UsersProvider = (props) => {
+  function reducer(state, action) {
+    console.warm(action);
+  }
+
+  useReducer(reducer, initialState);
+
   return (
     <UsersContext.Provider
       value={{
